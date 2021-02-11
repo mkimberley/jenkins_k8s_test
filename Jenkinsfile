@@ -15,8 +15,8 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: shell
-    image: ubuntu
+  - name: terraform
+    image: hashicorp/terraform
     command:
     - sleep
     args:
@@ -32,7 +32,7 @@ spec:
     stages {
         stage('Main') {
             steps {
-                sh 'hostname'
+                sh 'terraform -version'
             }
         }
     }
